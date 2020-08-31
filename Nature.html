@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nature</title>
+	<link rel="stylesheet" type="text/css" href="Css/Nature.css">
+	<link rel="stylesheet" type="text/css" href="Css/all.css">
+
+	<script type="text/javascript">
+        var TRange=null;
+
+function findString (str) {
+ if (parseInt(navigator.appVersion)<4) return;
+ var strFound;
+ if (window.find) {
+
+  // CODE FOR BROWSERS THAT SUPPORT window.find
+
+  strFound=self.find(str);
+  if (!strFound) {
+   strFound=self.find(str,0,1);
+   while (self.find(str,0,1)) continue;
+  }
+ }
+ else if (navigator.appName.indexOf("Microsoft")!=-1) {
+
+  // EXPLORER-SPECIFIC CODE
+
+  if (TRange!=null) {
+   TRange.collapse(false);
+   strFound=TRange.findText(str);
+   if (strFound) TRange.select();
+  }
+  if (TRange==null || strFound==0) {
+   TRange=self.document.body.createTextRange();
+   strFound=TRange.findText(str);
+   if (strFound) TRange.select();
+  }
+ }
+ else if (navigator.appName=="Opera") {
+  alert ("Opera browsers not supported, sorry...")
+  return;
+ }
+ if (!strFound) alert ("String '"+str+"' not found!")
+ return;
+}
+        
+    </script>
+
+
+	
+</head>
+<body>
+	
+		<div class="anchor">
+		<ul>
+			<li><a href="">Home<i class="fas fa-home"  style="margin: 5px"></i></a></li>
+			<li><a href="">News<i class="far fa-newspaper" style="margin: 9px"></i></a></li>
+			<li><a href="">Contact<i class="fas fa-mobile-alt"style="margin: 5px;"></i></a></li>
+			
+
+			<!-- Search Bar -->
+
+<form action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);">
+    	<input type="Search" placeholder="Search.." id="t1" name="t1"  size="20">
+ 		 
+ 		 <input type="image" src="images/s1.png"width="18" height="18" class="srbt" value="submit" id="t2"  name="t1" /> 
+
+      <!--   <input class="srbt" type="submit"  name="b1" value="Search" > -->
+
+</form><!-- end form and search bar -->
+
+		</ul>
+		
+
+
+	</div><!-- end anchor-->
+
+
+
+	<div class="care">
+		<p> 
+			 <i class="fab fa-envira" style="font-size: 30px;"></i>
+			<h4>Trees</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
+		</p>
+	</div>
+
+
+	<div class="temp">
+		<p>
+			<i class="fas fa-thermometer-three-quarters" style="font-size: 30px;"></i>
+
+			<h4>Temprature</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
+		</p>
+	</div>
+
+
+
+	<div class="future">
+		<p>
+			<i class="fas fa-child" style="font-size: 30px;"></i>
+			<h4>Future</h4>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
+		</p>
+	</div>
+			
+</body>
+</html>
